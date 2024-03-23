@@ -1,3 +1,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.input-style::placeholder {
+  color: #888; /* Change placeholder color to your desired color */
+}
