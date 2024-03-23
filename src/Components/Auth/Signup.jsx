@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import axiosInstance from "../../api/axios";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
@@ -52,7 +52,7 @@ function Signup() {
     e.preventDefault();
     if (Validation(e)) {
       try {
-        const res = await axiosInstance.post("api/user/register" , formData);
+        const res = await axiosInstance.post("api/user/register", formData);
 
         const jwtToken = res.data.token;
         localStorage.setItem("jwtToken", jwtToken);
@@ -184,7 +184,9 @@ function Signup() {
                   required
                   className="shadow appearance-none border text-sm rounded-xl w-full mb-2 sm:w-72 py-3 text-center px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                 >
-                  <option value=""> Assembly</option>
+                  <option disabled hidden value="">
+                    Select Assembly
+                  </option>
                   <option value="Assembly 1">Assembly 1</option>
                   <option value="Assembly 2">Assembly 2</option>
                   <option value="Assembly 3">Assembly 3</option>
@@ -312,7 +314,7 @@ function Signup() {
             </div>
             <h1 className="text-center text-sm">
               if you have already a account Please:
-              <span className="text-red-500">Login</span>
+             <Link to={'/login'}> <span className="text-red-500">Login</span></Link>
             </h1>
           </form>
         </div>
