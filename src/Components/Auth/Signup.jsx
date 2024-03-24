@@ -57,6 +57,16 @@ function Signup() {
         const jwtToken = res.data.token;
         localStorage.setItem("jwtToken", jwtToken);
 
+        // const emailResult = await axiosInstance.post(formData.email, 'api/user/verifyOTP ');
+
+        // if (emailResult.success) {
+        //   // Email sent successfully
+        //   toast.success("Verification email sent. Please check your inbox.");
+        // } else {
+        //   // Failed to send email
+        //   toast.error("Failed to send verification email.");
+        // }
+
         navigate("/home");
       } catch (error) {
         if (
@@ -314,7 +324,10 @@ function Signup() {
             </div>
             <h1 className="text-center text-sm">
               if you have already a account Please:
-             <Link to={'/login'}> <span className="text-red-500">Login</span></Link>
+              <Link to={"/login"}>
+                {" "}
+                <span className="text-red-500">Login</span>
+              </Link>
             </h1>
           </form>
         </div>
